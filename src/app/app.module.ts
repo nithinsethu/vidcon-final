@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HomeComponentComponent } from './home-component/home-component.component';
 import { VideoFramesComponent } from './video-frames/video-frames.component';
 import { HomeComponent } from './home/home.component';
 import { VideoFrameComponent } from './video-frames/video-frame/video-frame.component';
@@ -16,7 +15,6 @@ import { DisconnectComponent } from './controls/disconnect/disconnect.component'
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponentComponent,
     VideoFramesComponent,
     HomeComponent,
     VideoFrameComponent,
