@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  messages: string[] = [];
+
+  constructor() {
+    for (let i = 0; i < 100; ++i)
+      this.messages.push("Aey bhaiya pani puri bolo");
+  }
 
   ngOnInit(): void {
   }
