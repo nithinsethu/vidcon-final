@@ -1,29 +1,32 @@
 import { Injectable } from "@angular/core";
-import * as SimplePeer from 'simple-peer';
-//import * as SimplePeer from 'simple-peer';
-//import * as SimplePeer from 'simple-peer';
-//import * as Peer from "simple-peer"
+import * as io from 'socket.io-client';
+declare var SimplePeer: any;
 @Injectable()
 export class BackEndService{
-  peers: any[]=[];
-  // constructor(){
-  //   this.peers.push(new Peer({initiator: true}));
-  //   this.peers.push(new Peer());
-  //   this.peers[0].on('signal', data=>{
-  //     this.peers[1].signal(data);
-  //   })
-  //   this.peers[1].on('signal', data=>{
-  //     this.peers[0].signal(data);
-  //   })
-  //   this.peers[0].on('connect', () => {
-  //     this.peers[1].send('hey peer2, how is it going?')
-  //   })
-  //   this.peers[1].on('data', data => {
-  //     console.log('got a message from peer1: ' + data)
-  //   })
-  // }
+   peer1 = new SimplePeer({ initiator: true })
+   peer2 = new SimplePeer()
+  constructor(){
+    this.peer1.on('signal', data => {
+      // when peer1 has signaling data, give it to peer2 somehow
+      this.peer2.signal(data)
+    })
+
+    this.peer2.on('signal', data => {
+      // when peer2 has signaling data, give it to peer1 somehow
+      this.peer1.signal(data)
+    })
+    this.peer1.on('connect', () => {
+      // wait for 'connect' event before using the data channel
+      this.peer1.send('hey peer2, how is it going?')
+    })
+
+    this.peer2.on('data', data => {
+      // got a data channel message
+      console.log('got a message from peer1: ' + data)
+    })
+  }
   logToConsole(){
-    console.log(SimplePeer.WEBRTC_SUPPORT)
-    console.log(SimplePeer)
+    console.log()
+
   }
 }

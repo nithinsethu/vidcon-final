@@ -9,11 +9,11 @@ import { ControlsComponent } from './meeting/controls/controls.component';
 import { VideoToggleComponent } from './meeting/controls/video-toggle/video-toggle.component';
 import { AudioToggleComponent } from './meeting/controls/audio-toggle/audio-toggle.component';
 import { ScreenShareComponent } from './meeting/controls/screen-share/screen-share.component';
-import { ChatComponent } from './meeting/controls/chat/chat.component';
 import { DisconnectComponent } from './meeting/controls/disconnect/disconnect.component';
 import { BackEndService } from './shared/backend.service';
 import { MeetingComponent } from './meeting/meeting.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ChatToggleComponent } from './meeting/controls/chat-toggle/chat-toggle.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +25,9 @@ import { AppRoutingModule } from './app-routing.module';
     VideoToggleComponent,
     AudioToggleComponent,
     ScreenShareComponent,
-    ChatComponent,
     DisconnectComponent,
-    MeetingComponent
+    MeetingComponent,
+    ChatToggleComponent
   ],
   imports: [
     BrowserModule,
