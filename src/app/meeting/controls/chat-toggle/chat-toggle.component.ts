@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentsService } from 'src/app/shared/components.service';
 
 @Component({
   selector: 'app-chat-toggle',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatToggleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private componentsService: ComponentsService) { }
 
   ngOnInit(): void {
+  }
+  onChatToggle(){
+    this.componentsService.chatToggled.emit()
   }
 
 }

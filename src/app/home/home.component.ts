@@ -17,11 +17,13 @@ export class HomeComponent implements OnInit {
 
   }
   onJoin(){
-    this.router.navigate(['/meeting'],{queryParams: {id: this.id.nativeElement.value,pwd: this.pwd.nativeElement.value}} )
+    this.router.navigate(['/meeting'],{queryParams: {id: this.id.nativeElement.value, pwd: this.pwd.nativeElement.value}} )
+    this.backEndService.joinMeeting(this.id.nativeElement.value)
   }
   onNewMeeting(){
-    this.backEndService.logToConsole()
-    this.router.navigate(['/meeting'])
+    this.backEndService.createNewMeeting()
+    setTimeout(()=>this.router.navigate(['/meeting'], {queryParams: {id: this.backEndService.getMeetingId(), pwd: ''}}),50)
+    //this.router.navigate(['/meeting'], {queryParams: {id: this.backEndService.getMeetingId(), pwd: ''}})
   }
 
 }

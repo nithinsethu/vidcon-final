@@ -15,6 +15,7 @@ import { MeetingComponent } from './meeting/meeting.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChatToggleComponent } from './meeting/controls/chat-toggle/chat-toggle.component';
 import { ChatComponent } from './meeting/chat/chat.component';
+import { ComponentsService } from './shared/components.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ChatComponent } from './meeting/chat/chat.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [BackEndService],
+  providers: [BackEndService, ComponentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

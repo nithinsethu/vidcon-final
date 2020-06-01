@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentsService } from '../shared/components.service';
 
 @Component({
   selector: 'app-meeting',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./meeting.component.css']
 })
 export class MeetingComponent implements OnInit {
-
-  constructor() { }
+  showChat = false
+  constructor(private componentsService: ComponentsService) { }
 
   ngOnInit(): void {
+    this.componentsService.chatToggled.subscribe(()=>this.showChat = !this.showChat)
   }
 
 }
