@@ -1,1 +1,26 @@
-<p>chat works!</p>
+<div class="container-fluid">
+
+  <div class="card card-default">
+    <div class="card-header">People goes here</div>
+
+    <!-- <div class="card-body chat-container">
+      <ul class="list-group list-group-flush" *ngFor="let message of messages">
+        <li class="list-group-item">{{ message }}</li>
+      </ul>
+    </div> -->
+
+    <div class="list-group chat-container">
+
+        <a class="list-group-item list-group-item-action"  *ngFor="let message of messages">
+          <span class="badge badge-primary">Neth</span> {{ message }}
+        </a>
+
+    </div>
+
+    <div class="card-footer">
+      <input placeholder="Type a message...">
+      <button class="btn btn-primary">Send</button>
+    </div>
+  </div>
+
+</div>
