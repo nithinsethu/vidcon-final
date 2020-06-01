@@ -14,6 +14,7 @@ import { BackEndService } from './shared/backend.service';
 import { MeetingComponent } from './meeting/meeting.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChatToggleComponent } from './meeting/controls/chat-toggle/chat-toggle.component';
+import { ChatComponent } from './meeting/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ChatToggleComponent } from './meeting/controls/chat-toggle/chat-toggle.
     ScreenShareComponent,
     DisconnectComponent,
     MeetingComponent,
-    ChatToggleComponent
+    ChatToggleComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
