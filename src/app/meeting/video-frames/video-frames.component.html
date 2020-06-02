@@ -1,7 +1,7 @@
 <div class="container border" style="margin-top:20px;">
   <div class="row ">
     <div class="col-8 justify-content-right">
-      <app-video-frame></app-video-frame>
+      <app-video-frame [videoSrcObject]="getMainStream()"></app-video-frame>
       <app-controls></app-controls>
     </div>
 
@@ -12,12 +12,9 @@
 
 
 
-        <app-video-frame></app-video-frame>
-        <app-video-frame></app-video-frame>
-        <app-video-frame></app-video-frame>
-        <app-video-frame></app-video-frame>
-        <app-video-frame></app-video-frame>
-        <app-video-frame></app-video-frame>
+        <!-- <video *ngFor="let stream of streams" [srcObject]="stream" autoplay></video> -->
+        <app-video-frame *ngFor="let key of keys(streams)" [videoSrcObject]="streams[key]"></app-video-frame>
+
       </div>
     </div>
 
