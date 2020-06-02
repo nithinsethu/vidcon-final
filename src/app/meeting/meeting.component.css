@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: 75% 25%;
-  grid-auto-rows: minmax(800px, auto);
+  grid-auto-rows: minmax(910px, auto);
   margin: 10px;
 
 }

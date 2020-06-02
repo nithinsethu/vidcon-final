@@ -3,18 +3,11 @@
   <div class="card card-default">
     <div class="card-header">People goes here</div>
 
-    <!-- <div class="card-body chat-container">
-      <ul class="list-group list-group-flush" *ngFor="let message of messages">
-        <li class="list-group-item">{{ message }}</li>
-      </ul>
-    </div> -->
-
-    <div class="list-group chat-container">
+    <div class="list-group chat-container" #chatHistory>
 
         <a style="border:none;" class="list-group-item list-group-item-action"  *ngFor="let message of messages">
           <span *ngIf="message != ''" class="badge badge-primary">Neth</span> {{ message }}
         </a>
-
     </div>
 
     <div class="card-footer">

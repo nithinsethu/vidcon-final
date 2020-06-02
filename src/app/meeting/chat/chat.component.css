@@ -1,12 +1,16 @@
 .chat-container {
+  min-height: 800px;
   max-height: 800px;
-  background-color: lightgray;
+  /* background-color: lightgray; */
   overflow-y: scroll;
+  overflow: auto;
+  overflow-anchor: auto;
 }
 
 .container-fluid {
   max-width: 1200px;
 }
+
 
 /* .message-area:nth-child(even) {
   background-color: lightgreen;
