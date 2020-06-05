@@ -4,7 +4,8 @@
 
 export const environment = {
   production: true,
-  SOCKET_ENDPOINT: 'http://192.168.225.243:3000'
+  HOST: 'http://'+location.host,
+  SOCKET_ENDPOINT: location.hostname+':3000'
 };
 
 /*

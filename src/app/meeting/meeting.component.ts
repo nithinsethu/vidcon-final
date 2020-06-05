@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ComponentsService } from '../shared/components.service';
 import { BackEndService } from '../shared/backend.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-meeting',
@@ -40,7 +41,7 @@ export class MeetingComponent implements OnInit {
     // this.route.params.subscribe((params)=>console.log(params))
   }
   onCopy() {
-   this.copyMessage('192.168.225.243:4200/meeting?id='+this.backendService.getMeetingId())
+   this.copyMessage(environment.HOST+'/meeting?id='+this.backendService.getMeetingId())
   }
   copyMessage(val: string){
     const selBox = document.createElement('textarea');

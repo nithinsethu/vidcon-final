@@ -99,6 +99,11 @@ export class BackEndService {
   toggleVideo(){
     this.stream.getVideoTracks()[0].enabled = !this.stream.getVideoTracks()[0].enabled
   }
+  disconnect(){
+    this.socket.disconnect()
+    // window.location.reload();
+
+  }
   //messages
   sendMessage(msg: String){
     this.socket.emit('message',msg)
