@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackEndService } from 'src/app/shared/backend.service';
 
 @Component({
   selector: 'app-audio-toggle',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AudioToggleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private backendService: BackEndService) {
 
+  }
+  onClick(){
+    this.backendService.toggleAudio()
+  }
   ngOnInit(): void {
   }
 

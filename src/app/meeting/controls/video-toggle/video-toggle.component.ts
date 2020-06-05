@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackEndService } from 'src/app/shared/backend.service';
 
 @Component({
   selector: 'app-video-toggle',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoToggleComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private backendService: BackEndService) {
+  }
+  onClick(){
+    this.backendService.toggleVideo()
+  }
   ngOnInit(): void {
   }
 

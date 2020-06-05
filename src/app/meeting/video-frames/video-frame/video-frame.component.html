@@ -1,2 +1,14 @@
-<a (click)="clicked()" style="cursor: pointer"><video [srcObject]="videoSrcObject"  style="max-width: 100%; height: auto; min-width: 50%;" autoplay></video></a>
-
+<p>{{name}}</p>
+<a (click)="clicked()" style="cursor: pointer;"
+  ><video
+    [srcObject]="videoSrcObject"
+    style="
+      max-width: 100%;
+      height: auto;
+      min-width: 50%;
+    "
+    [ngStyle] = "{'border': ((!isMainFrame)?'3px solid grey':'none')}"
+    autoplay
+    [muted]="isMuted"
+  ></video
+></a>

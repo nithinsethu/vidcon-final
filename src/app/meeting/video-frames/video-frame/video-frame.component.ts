@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-video-frame',
@@ -7,12 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VideoFrameComponent implements OnInit {
   @Input() videoSrcObject;
+  @Input() isMuted = false;
+  @Input() isMainFrame = false;
+  @Input() name;
+  @Output() onClicked = new EventEmitter<any>()
+
   constructor() { }
 
   ngOnInit(): void {
   }
   clicked(){
-    console.log('clicked')
+    this.onClicked.emit({src:this.videoSrcObject, name:this.name})
   }
 
 }

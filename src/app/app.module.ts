@@ -17,6 +17,8 @@ import { ChatToggleComponent } from './meeting/controls/chat-toggle/chat-toggle.
 import { ChatComponent } from './meeting/chat/chat.component';
 import { ComponentsService } from './shared/components.service';
 import { FormsModule } from '@angular/forms';
+import { RouteGuard } from 'src/app/route-guard.service';
+import { PreJoinComponent } from './pre-join/pre-join.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +33,15 @@ import { FormsModule } from '@angular/forms';
     DisconnectComponent,
     MeetingComponent,
     ChatToggleComponent,
-    ChatComponent
+    ChatComponent,
+    PreJoinComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [BackEndService, ComponentsService],
+  providers: [BackEndService, ComponentsService, RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

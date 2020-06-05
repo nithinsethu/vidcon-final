@@ -8,20 +8,33 @@ import { BackEndService } from 'src/app/shared/backend.service';
 })
 export class VideoFramesComponent implements OnInit, DoCheck {
   streams: any;
+  names: any;
+  mainStream: any;
+  mainStreamName: any;
   constructor(private backendService: BackEndService) {
 
 
   }
 
   ngOnInit(): void {
+    // this.mainStream = this.backendService.getStream()
+
     this.streams = this.backendService.getStreams()
+    this.names = this.backendService.getNames()
+
   }
 
   ngDoCheck(): void{
+    if(!this.mainStream){
+      this.mainStream = this.backendService.getStream()
+      this.mainStreamName = this.backendService.getName()
+    }
     this.streams = this.backendService.getStreams()
+    this.names = this.backendService.getNames()
   }
-  getMainStream(){
-    return this.backendService.getStream()
+  changeMainStream(event){
+    this.mainStream = event.src
+    this.mainStreamName = event.name
   }
 
   keys(dic){
