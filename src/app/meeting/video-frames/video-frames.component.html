@@ -1,4 +1,4 @@
-<div class="container border" style="margin-top:20px;">
+<!-- <div class="container border" style="margin-top:20px;display: none">
   <div class="row ">
     <div class="col-8 justify-content-left">
       <app-video-frame [isMainFrame]="true" [videoSrcObject]="mainStream" [name]="mainStreamName" [isMuted]="true"  ></app-video-frame>
@@ -7,12 +7,11 @@
 
     <div class="col-2 justify-content-left" >
       <div class="list-group h-80 d-inline-block" style="overflow: scroll;overflow: hidden">
-          <!-- <button type="button" class="btn btn-xs list-group-item list-group-item-action active " style="font-size:20px;text-align: center;margin-bottom: 5px;"> -->
-          <!-- </button> -->
 
 
 
-        <!-- <video *ngFor="let stream of streams" [srcObject]="stream" autoplay></video> -->
+
+
         <app-video-frame *ngFor="let key of keys(streams)" [videoSrcObject]="streams[key]" [name]="names[key]" [isMuted]="key==='self'" (onClicked)="changeMainStream($event)" ></app-video-frame>
 
       </div>
@@ -22,4 +21,16 @@
   </div>
 
 
-</div>
+</div> -->
+
+<main>
+  <app-video-frame class="main-frame" [isMainFrame]="true" [videoSrcObject]="mainStream" [name]="mainStreamName" [isMuted]="true"  ></app-video-frame>
+  <app-controls class="controls"></app-controls>
+  <div class="frames">
+    <app-video-frame  *ngFor="let key of keys(streams)" [videoSrcObject]="streams[key]" [name]="names[key]" [isMuted]="key==='self'" (onClicked)="changeMainStream($event)" ></app-video-frame>
+  </div>
+  <div class="info">
+    <app-meeting-info></app-meeting-info>
+  </div>
+
+</main>

@@ -1,14 +1,21 @@
-<p>{{name}}</p>
-<a (click)="clicked()" style="cursor: pointer;"
-  ><video
-    [srcObject]="videoSrcObject"
-    style="
+<div class="frame">
+  <div class="overlay">
+    <p><b>{{ name }}</b></p>
+  </div>
+  <a (click)="clicked()" style="cursor: pointer;"
+    ><video
+      [ngClass]="{'main-frame': isMainFrame}"
+      [srcObject]="videoSrcObject"
+      [ngStyle]="{ border: !isMainFrame ? '3px solid grey' : 'none' }"
+      autoplay
+      [muted]="isMuted"
+    ></video
+  ></a>
+
+</div>
+
+<!-- style="
       max-width: 100%;
       height: auto;
       min-width: 50%;
-    "
-    [ngStyle] = "{'border': ((!isMainFrame)?'3px solid grey':'none')}"
-    autoplay
-    [muted]="isMuted"
-  ></video
-></a>
+    " -->

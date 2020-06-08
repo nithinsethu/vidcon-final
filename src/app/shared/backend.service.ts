@@ -1,17 +1,21 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import * as io from 'socket.io-client';
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
 declare var SimplePeer: any;
 @Injectable()
 export class BackEndService {
-  private names:any ={} ;
+  private names:any =[] ;
   private name: String;
+  private passiveStream:any={};
   private stream: any;
-  private streams: any = {};
+  private streams: any = [];
   private socket: any;
   private meetingId: number;
-  private peers: any = {};
+  private peers: any = [];
   messageRecieved = new EventEmitter<{msg: String, name: String}>();
+  mainStreamChanged = new Subject<any>();
+
 
   constructor() {
     this.socket = io(environment.SOCKET_ENDPOINT);
@@ -38,13 +42,36 @@ export class BackEndService {
       delete this.names[id];
     });
   }
-
   addMedia(stream) {
+    this.passiveStream = stream
+    this.mainStreamChanged.next({name:this.name,stream})
     this.stream = stream;
+
     this.streams['self'] = stream;
 
     Object.keys(this.peers).forEach((id) => {
       this.peers[id].addStream(stream);
+    });
+  }
+  replaceTrack(track){
+    Object.keys(this.peers).forEach((id) => {
+      this.peers[id].replaceTrack(this.stream.getVideoTracks()[0],track,this.stream);
+    });
+  }
+  removeStream(stream){
+    Object.keys(this.peers).forEach((id) => {
+      this.peers[id].removeStream(stream)
+    });
+  }
+  addStream(stream){
+    Object.keys(this.peers).forEach((id) => {
+      this.peers[id].addStream(stream)
+    });
+  }
+
+  addTrack(track){
+    Object.keys(this.peers).forEach((id) => {
+      this.peers[id].addTrack(track,this.stream);
     });
   }
   createNewMeeting(name: String) {
@@ -107,6 +134,27 @@ export class BackEndService {
   //messages
   sendMessage(msg: String){
     this.socket.emit('message',msg)
+  }
+  startScreenShare(str){
+    // this.toggleVideo()
+    this.replaceTrack(str.getVideoTracks()[0])
+    //this.replaceTrack(str.getVideoTracks()[0])
+
+    this.stream = str;
+    this.streams['self'] = str;
+    this.mainStreamChanged.next({name:this.name,stream:str});
+
+
+  }
+  stopScreenShare(){
+    this.stream = this.passiveStream
+    this.replaceTrack(this.stream.getVideoTracks()[0])
+    console.log(this.stream.getTracks())
+    // console.log(this.stream.getTracks())
+    // //this.addStream(this.passiveStream)
+    this.streams['self'] = this.passiveStream;
+    this.mainStreamChanged.next({name:this.name,stream:this.passiveStream});
+    // this.stream = this.passiveStream;
   }
 
 }

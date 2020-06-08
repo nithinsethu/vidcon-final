@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentsService } from 'src/app/shared/components.service';
 
 @Component({
   selector: 'app-screen-share',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScreenShareComponent implements OnInit {
 
-  constructor() { }
+  constructor(private componentService: ComponentsService) { }
 
   ngOnInit(): void {
+  }
+  onScreenShare(){
+    this.componentService.screenShare.next();
   }
 
 }

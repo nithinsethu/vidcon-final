@@ -13,7 +13,7 @@ export class ChatToggleComponent implements OnInit {
   ngOnInit(): void {
   }
   onChatToggle(){
-    this.componentsService.chatToggled.emit()
+    this.componentsService.chatToggled.next()
   }
 
 }

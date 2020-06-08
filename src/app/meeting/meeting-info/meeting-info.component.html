@@ -1,0 +1,5 @@
+<i class="fas fa-info-circle fa-3x" (click)="onInfo()" style="cursor: pointer;"></i>
+<div class="card" *ngIf="infoToggled">
+  <b>Meeting Id: </b><p>{{getMeetingId()}}</p>
+  <b>URL: </b><p>{{getMeetingURL()}}</p>
+</div>

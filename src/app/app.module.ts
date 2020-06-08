@@ -19,6 +19,7 @@ import { ComponentsService } from './shared/components.service';
 import { FormsModule } from '@angular/forms';
 import { RouteGuard } from 'src/app/route-guard.service';
 import { PreJoinComponent } from './pre-join/pre-join.component';
+import { MeetingInfoComponent } from './meeting/meeting-info/meeting-info.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PreJoinComponent } from './pre-join/pre-join.component';
     MeetingComponent,
     ChatToggleComponent,
     ChatComponent,
-    PreJoinComponent
+    PreJoinComponent,
+    MeetingInfoComponent
   ],
   imports: [
     BrowserModule,
