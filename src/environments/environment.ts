@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   HOST: 'https://'+location.host,
-  SOCKET_ENDPOINT: 'https://'+location.hostname+':3000'
+  SOCKET_ENDPOINT: 'https://'+'strealm.com'+':3000'
 };
 
 /*
