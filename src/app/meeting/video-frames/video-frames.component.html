@@ -23,7 +23,7 @@
 
 </div> -->
 
-<main>
+<!-- <main>
   <app-video-frame class="main-frame" [isMainFrame]="true" [videoSrcObject]="mainStream" [name]="mainStreamName" [isMuted]="true"  ></app-video-frame>
   <app-controls class="controls"></app-controls>
   <div class="frames">
@@ -33,4 +33,16 @@
     <app-meeting-info></app-meeting-info>
   </div>
 
-</main>
+</main> -->
+
+<div class="video-container">
+  <app-video-frame class="main-frame" [isMainFrame]="true" [videoSrcObject]="mainStream" [name]="mainStreamName" [isMuted]="true"  ></app-video-frame>
+
+  <div class="frames">
+    <app-video-frame  *ngFor="let key of keys(streams)" [videoSrcObject]="streams[key]" [name]="names[key]" [isMuted]="key==='self'" (onClicked)="changeMainStream($event)" ></app-video-frame>
+  </div>
+
+  <div class="info">
+    <app-meeting-info></app-meeting-info>
+  </div>
+</div>

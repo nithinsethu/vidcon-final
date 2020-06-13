@@ -5,16 +5,30 @@
     </div>
   </div>
 </div> -->
+
+
 <!-- <div class="grid">
-  <div class="video">
-    <app-video-frames></app-video-frames>
-  </div>
+  <div class="video"> -->
+    <!-- <app-video-frames></app-video-frames> -->
+  <!-- </div>
 
   <div class="chat" *ngIf="showChat">
     <app-chat></app-chat>
   </div>
 </div> -->
 
+<!-- <app-video-frames></app-video-frames> -->
 
-  <app-video-frames></app-video-frames>
 
+<div [ngClass]="showChat? 'show-chat':''">
+  <main>
+    <app-video-frames class="main-frame"></app-video-frames> 
+    <app-controls class="controls"></app-controls>
+  </main>
+
+  <app-chat class="chat" *ngIf="showChat"></app-chat>
+</div>
+
+<!-- <div class="info">
+  <app-meeting-info></app-meeting-info>
+</div> -->

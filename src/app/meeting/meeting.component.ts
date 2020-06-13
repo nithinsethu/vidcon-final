@@ -80,4 +80,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
+  toggleChat() {
+    this.showChat = !this.showChat;
+  }
 }

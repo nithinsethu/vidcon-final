@@ -1,12 +1,37 @@
-/* .grid {
+.show-chat {
   display: grid;
-  grid-template-columns: 75% 25%;
-  grid-auto-rows: minmax(910px, auto);
-  margin: 10px;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 8fr 2fr;
+}
 
-} */
+main {
+  display: grid;
+  /* grid-template-columns: 1fr 3fr 1fr; */
 
-/* .video {
-  background-color: skyblue;
-} */
+  height: 100vh;
+  /* width: 100vw; */
+  /* width: 100vw; */
+  /* width: 100vw; */
+  /* grid-template-columns: 1fr;*/
+  grid-template-rows: 11fr 1fr;
+  background-color: rgb(194, 194, 194);
+  row-gap: 2px;
+  column-gap: 3px;
+  grid-column: 1;
+}
 
+.main-frame {
+  grid-row: 1;
+  overflow: hidden;
+}
+
+.controls{
+  width: 50%;
+  justify-self: center;
+  grid-row: 2;
+}
+
+.chat {
+  grid-column: 2;
+}
