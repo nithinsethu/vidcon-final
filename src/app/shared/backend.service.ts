@@ -6,14 +6,14 @@ declare var SimplePeer: any;
 @Injectable()
 export class BackEndService {
   private names:any =[] ;
-  private name: String;
+  private name: string;
   private passiveStream:any={};
   private stream: any;
   private streams: any = [];
   private socket: any;
   private meetingId: number;
   private peers: any = [];
-  messageRecieved = new EventEmitter<{msg: String, name: String}>();
+  messageRecieved = new EventEmitter<{msg: string, name: string}>();
   mainStreamChanged = new Subject<any>();
 
 
@@ -74,14 +74,14 @@ export class BackEndService {
       this.peers[id].addTrack(track,this.stream);
     });
   }
-  createNewMeeting(name: String) {
+  createNewMeeting(name: string) {
     this.name = name;
     this.names['self'] = this.name;
     this.socket.emit('newMeeting', name, (meetingId: number) => {
       this.meetingId = meetingId;
     });
   }
-  joinMeeting(meetingId: number, name: String) {
+  joinMeeting(meetingId: number, name: string) {
     this.name = name;
     this.names['self'] = name;
     this.meetingId = meetingId;

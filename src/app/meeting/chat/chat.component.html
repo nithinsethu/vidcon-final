@@ -6,7 +6,7 @@
     <div class="list-group chat-container" #chatHistory>
 
         <a style="border:none;" class="list-group-item list-group-item-action"  *ngFor="let message of messages">
-          <span *ngIf="message != ''" class="badge badge-primary">Neth</span> {{ message }}
+          <span *ngIf="message != ''" class="badge badge-primary">{{message.name}}</span> {{ message.text }}
         </a>
     </div>
 
