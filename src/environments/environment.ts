@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  HOST: 'https://'+location.host,
-  SOCKET_ENDPOINT: 'https://'+'strealm.com'+':3000'
+  HOST: 'http://'+location.host,
+  SOCKET_ENDPOINT: 'https://'+'localhost'+':3000'
 };
 
 /*

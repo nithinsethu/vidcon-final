@@ -6,16 +6,19 @@
     <div class="col-4">
       <div class="card">
         <div class="card-body">
-          <form action="" autocomplete="off">
+          <form (ngSubmit)="onJoin()" autocomplete="off" #f="ngForm">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Name"
+                ngModel
+                name="name"
+                required
                 #name
               />
             </div>
-            <button type="button" class="btn btn-primary" (click)="onJoin()">
+            <button [disabled]="!joinForm.valid" type="button" class="btn btn-primary" (click)="onJoin()">
               Join
             </button>
           </form>

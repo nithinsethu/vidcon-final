@@ -23,7 +23,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   messages: Message[]=[];
   textMessage: string = '';
   constructor(private service: BackEndService) {
-    for (let i = 0; i < 20; ++i) this.messages.push({name:'Neth', text:'Hello'});
     this.service.messageRecieved.subscribe(({ msg, name }) =>
     this.messages.push({name,text: msg}));
   }
